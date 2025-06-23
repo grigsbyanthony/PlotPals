@@ -1,0 +1,193 @@
+/* Custom Font */
+@font-face {
+    font-family: 'ChuckleCharm';
+    src: url('../font/Chuckle\ Charm\ DEMO.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Banner Animation Styles */
+#banner-container {
+    background: #24292e;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+#banner-inside {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    overflow: visible;
+}
+
+.header-content {
+    position: relative;
+    z-index: 10;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+#banner-shuffle {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    transition: all 0.2s ease;
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 20;
+}
+
+#banner-shuffle:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: rotate(30deg);
+}
+
+#banner-shuffle:active {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: rotate(180deg);
+}
+
+@keyframes rotate-shuffle {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#banner-shuffle.rotating {
+    animation: rotate-shuffle 0.5s ease-in-out;
+}
+
+#circle-small {
+    -webkit-animation: circle-small-scale 3s ease-in-out infinite alternate;
+    animation: circle-small-scale 3s ease-in-out infinite alternate;
+    animation-timing-function: cubic-bezier(.6, 0, .4, 1);
+    animation-delay: 0s;
+    position: absolute;
+    top: 20px;
+    left: -150px;
+    background: #fff;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+#circle-medium {
+    -webkit-animation: circle-small-scale 3s ease-in-out infinite alternate;
+    animation: circle-small-scale 3s ease-in-out infinite alternate;
+    animation-timing-function: cubic-bezier(.6, 0, .4, 1);
+    animation-delay: 0.3s;
+    position: absolute;
+    top: -50px;
+    left: -300px;
+    background: #fff;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    opacity: 0.07;
+}
+
+#circle-large {
+    -webkit-animation: circle-small-scale 3s ease-in-out infinite alternate;
+    animation: circle-small-scale 3s ease-in-out infinite alternate;
+    animation-timing-function: cubic-bezier(.6, 0, .4, 1);
+    animation-delay: 0.6s;
+    position: absolute;
+    top: -100px;
+    left: -450px;
+    background: #fff;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    opacity: 0.05;
+}
+
+#circle-xlarge {
+    -webkit-animation: circle-small-scale 3s ease-in-out infinite alternate;
+    animation: circle-small-scale 3s ease-in-out infinite alternate;
+    animation-timing-function: cubic-bezier(.6, 0, .4, 1);
+    animation-delay: 0.9s;
+    position: absolute;
+    top: -150px;
+    left: -600px;
+    background: #fff;
+    width: 1200px;
+    height: 1200px;
+    border-radius: 50%;
+    opacity: 0.03;
+}
+
+#circle-xxlarge {
+    -webkit-animation: circle-small-scale 3s ease-in-out infinite alternate;
+    animation: circle-small-scale 3s ease-in-out infinite alternate;
+    animation-timing-function: cubic-bezier(.6, 0, .4, 1);
+    animation-delay: 1.2s;
+    position: absolute;
+    top: -200px;
+    left: -750px;
+    background: #fff;
+    width: 1500px;
+    height: 1500px;
+    border-radius: 50%;
+    opacity: 0.02;
+}
+
+@-webkit-keyframes circle-small-scale {
+    0% {
+        -webkit-transform: scale(1.0);
+    }
+    100% {
+        -webkit-transform: scale(1.05);
+    }
+}
+
+@keyframes circle-small-scale {
+    0% {
+        transform: scale(1.0);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* Adjust header text colors for better visibility on the blue background */
+header .logo-container h1 {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'ChuckleCharm', sans-serif;
+    font-size: 5rem;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+header nav ul li a {
+    color: white;
+    font-weight: 500;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: white;
+    border-bottom: 2px solid white;
+}

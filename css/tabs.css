@@ -1,0 +1,94 @@
+/* Tab Navigation Styles for PlotPals */
+
+.tabs {
+    margin: 1rem 0;
+}
+
+.tab-nav {
+    display: flex;
+    list-style: none;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.tab-nav-item {
+    margin-right: 0.5rem;
+}
+
+.tab-nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s;
+}
+
+.tab-nav-link:hover {
+    background-color: rgba(74, 111, 165, 0.1);
+}
+
+.tab-nav-link.active {
+    border-color: var(--border-color);
+    border-bottom-color: white;
+    background-color: white;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.tab-content {
+    display: none;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Visualization Type Tabs */
+.viz-tabs {
+    margin-top: 1rem;
+}
+
+.viz-tab-content {
+    min-height: 300px;
+}
+
+/* Code Format Tabs */
+.code-format-tabs .tab-nav-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+}
+
+.code-format-tabs .tab-content {
+    padding: 0;
+    border: none;
+}
+
+/* Responsive Tabs */
+@media (max-width: 600px) {
+    .tab-nav {
+        flex-wrap: wrap;
+    }
+    
+    .tab-nav-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .tab-nav-link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlotPals - Color Palettes for Data Visualization</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/code-blocks.css">
+    <link rel="stylesheet" href="css/tabs.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header>
+        <div id="banner-container">
+            <div id="banner-inside">
+                <div id="circle-small"></div>
+                <div id="circle-medium"></div>
+                <div id="circle-large"></div>
+                <div id="circle-xlarge"></div>
+                <div id="circle-xxlarge"></div>
+                
+                <div class="header-content">
+                    <div class="logo-container">
+                        <h1>PlotPals</h1>
+                    </div>
+                    <button id="banner-shuffle" title="Shuffle banner colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3L5 6.99h3V14h2V6.99h3L9 3z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="visualization-panel">
+                <div class="viz-tabs">
+                    <button class="viz-tab active" data-viz="0">Heatmap</button>
+                    <button class="viz-tab" data-viz="1">Bar Chart</button>
+                    <button class="viz-tab" data-viz="2">Line Chart</button>
+                    <button class="viz-tab" data-viz="3">Volcano Plot</button>
+                </div>
+                <div class="viz-container">
+                    <!-- D3.js visualizations will be rendered here -->
+                    <div id="visualization"></div>
+                </div>
+
+                <div class="customization-panel">
+                    <h3>Customize Visualization</h3>
+                    <div id="viz-options">
+                        <!-- Dynamic customization controls will be inserted here -->
+                    </div>
+                    <button id="apply-customization" class="apply-btn">Apply Changes</button>
+                </div>
+            </div>
+
+            <div class="palette-panel">
+                <div class="palette-navigation">
+                    <button class="palette-nav-button all-palettes active" data-filter="all">All Palettes</button>
+                    <div class="palette-category-buttons">
+                        <button class="palette-nav-button" data-filter="sequential">Sequential</button>
+                        <button class="palette-nav-button" data-filter="categorical">Categorical</button>
+                        <button class="palette-nav-button" data-filter="diverging">Diverging</button>
+                    </div>
+                </div>
+
+                <div class="palette-container" id="palette-container"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PlotPals. Created for data visualization enthusiasts.</p>
+    </footer>
+
+    <!-- Templates for palette cards -->
+    <template id="palette-card-template">
+        <div class="palette-card" data-type="">
+            <h3 class="palette-name"></h3>
+            <div class="palette-type"></div>
+            <div class="palette-swatches"></div>
+            <div class="palette-actions">
+                <button class="apply-palette">Apply to Viz</button>
+                <button class="view-palette">View Details</button>
+            </div>
+        </div>
+    </template>
+    
+    <!-- Palette Detail Modal -->
+    <div class="modal-overlay" id="palette-modal">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Palette Name</h2>
+                <div class="palette-type-badge"></div>
+            </div>
+            <div class="modal-body">
+                <div class="full-palette-swatches"></div>
+                
+                <h3>Colors</h3>
+                <div class="color-values"></div>
+                
+                <h3>Code Examples</h3>
+                <div class="tabs code-format-tabs">
+                    <ul class="tab-nav">
+                        <li class="tab-nav-item"><a href="#python-code" class="tab-nav-link active">Python</a></li>
+                        <li class="tab-nav-item"><a href="#r-code" class="tab-nav-link">R</a></li>
+                        <li class="tab-nav-item"><a href="#js-code" class="tab-nav-link">JavaScript</a></li>
+                    </ul>
+                    
+                    <div class="tab-content active" id="python-code">
+                        <div class="code-block">
+                            <div class="code-language">Python</div>
+                            <pre><code class="language-python"></code></pre>
+                            <button class="code-copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="r-code">
+                        <div class="code-block">
+                            <div class="code-language">R</div>
+                            <pre><code class="language-r"></code></pre>
+                            <button class="code-copy-btn">Copy</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="js-code">
+                        <div class="code-block">
+                            <div class="code-language">JavaScript</div>
+                            <pre><code class="language-javascript"></code></pre>
+                            <button class="code-copy-btn">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn-primary apply-palette-modal">Apply to Visualization</button>
+                <button class="modal-btn-secondary modal-close-btn">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Copy Success Notification -->
+    <div class="copy-success" id="copy-notification">Copied to clipboard!</div>
+
+    <script src="js/script.js"></script>
+    <script src="js/banner.js"></script>
+</body>
+</html>
