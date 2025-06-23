@@ -541,16 +541,14 @@ function setupEventListeners() {
     });
     
     // Filter buttons
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            
+    document.querySelectorAll('.palette-nav-button').forEach(button => {
+        button.addEventListener('click', (e) => {
             // Update active class
-            document.querySelector('nav a.active').classList.remove('active');
-            link.classList.add('active');
+            document.querySelector('.palette-nav-button.active')?.classList.remove('active');
+            button.classList.add('active');
             
             // Filter palettes
-            const filter = link.dataset.filter;
+            const filter = button.dataset.filter;
             filterPalettes(filter);
         });
     });
